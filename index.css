@@ -6,7 +6,7 @@
 body {
   padding: 40px;
   display: grid;
-  grid-template-columns: auto 350px;
+  grid-template-columns: auto 450px;
   background-color: #3c3c3c;
   color: #fff;
 }
@@ -25,6 +25,7 @@ textarea {
   border-radius: 5px;
   color: #fff;
   border: 1px solid #fff;
+  min-width: 100%;
 }
 
 button {
@@ -43,6 +44,7 @@ button:hover {
 
 #gerar {
   background-color: palegreen;
+  width: 40%;
 }
 
 #gerar:hover {
@@ -51,31 +53,37 @@ button:hover {
 
 #limpa {
   color: #fff;
+  width: 40%;
 }
 
 .btn-container {
   display: flex;
   justify-content: space-between;
-  max-width: 350px;
   margin-top: 20px;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    overflow-y: scroll;
-    max-height: 380px;
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 420px;
 }
 
 .operation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    background-color: #515050;
-    padding: 5px;
-    border-radius: 5px;
-    margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  background-color: #515050;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: all linear 500ms;
+}
+
+.operation:hover {
+  background-color: #202020;
+  transition: all linear 500ms;
 }

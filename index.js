@@ -15,6 +15,9 @@ function limpar() {
 }
 
 btnLimpa.addEventListener('click', limpar)
+swagger.addEventListener('resize', (ev) => {
+  print(document.getElementsByClassName('btn-container')[0])
+})
 
 const keys = (o) => Object.keys(o)
 
@@ -41,13 +44,15 @@ const popula = (name, status = 200, schema = []) => {
 }
 
 const desenhaLista = () => {
-  resultados.innerHTML = operations.map(o1 => `<div class="operation"><div>${o1.name.length < 31 ? o1.name : o1.name.substring(0, 30) + '...'}</div><button id="imprimir">desc</button></div>`).join('')
+  resultados.innerHTML = operations.map(o1 => `<div title="${o1.name} (${o1.status})" class="operation"><div>${(o1.name.length < 26 ? o1.name : o1.name.substring(0, 25) + '...')} (${o1.status})</div><button id="imprimir">baixar</button></div>`).join('')
 }
 
 function lerSwagger() {
   const paths = JSON.parse(swagger.value).paths
 
   const indexes = indices(paths)
+
+  operations.splice(0, operations.length)
 
   for (let i of indexes)
     for (let m of i.methods) {
